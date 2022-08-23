@@ -13,11 +13,11 @@ public class AddonConfiguration extends AddonConfig {
   @SwitchSetting
   private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
-  @SliderSetting(min = 5, max = 20)
-  private final ConfigProperty<Integer> size = new ConfigProperty<>(10);
-
   @SwitchSetting
   private final ConfigProperty<Boolean> showOwn = new ConfigProperty<>(true);
+
+  @SliderSetting(min = 5, max = 20)
+  private final ConfigProperty<Integer> size = new ConfigProperty<>(10);
 
   @Override
   public ConfigProperty<Boolean> enabled() {
