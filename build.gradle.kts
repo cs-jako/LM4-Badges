@@ -66,9 +66,6 @@ addon {
         description("Shows Badges of players from Laby.net above their Nametag.")
         iconUrl("https://cs-jako.github.io/images/addons/Badges.png", project(":core"))
         version(System.getenv().getOrDefault("VERSION", "0.0.0"))
-
-        //if you want to add dependencies, go to the build.gradle.kts in the core or api module
-        //add take a look in the dependencies block
     }
 
     internalRelease()
