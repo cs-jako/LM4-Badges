@@ -58,6 +58,10 @@ public class BadgeTag extends IconTag {
 
     Player player = (Player) livingEntity;
 
+    if (!addon.playerCache.containsKey(player.getUniqueId()) ||
+    addon.playerCache.get(player.getUniqueId()).size() == 0)
+      return false;
+
     if (player.isInvisible())
       return false;
 

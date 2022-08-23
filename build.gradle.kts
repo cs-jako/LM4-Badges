@@ -37,7 +37,7 @@ plugins {
 }
 
 group = "net.crazy"
-version = "1.0.0"
+version = "1.0.1"
 
 plugins.apply("net.labymod.gradle.addon")
 
