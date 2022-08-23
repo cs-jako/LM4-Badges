@@ -1,4 +1,4 @@
-rootProject.name = "labymod4-addon-template"
+rootProject.name = "badges"
 
 include(":api")
 include(":core")

@@ -36,7 +36,7 @@ plugins {
     id("java-library")
 }
 
-group = "org.example"
+group = "net.crazy"
 version = "1.0.0"
 
 plugins.apply("net.labymod.gradle.addon")
@@ -60,10 +60,10 @@ subprojects {
 
 addon {
     addonInfo {
-        namespace("example")
-        displayName("Example Addon")
-        author("Example Author")
-        description("An Example Description!")
+        namespace("badges")
+        displayName("Badges")
+        author("CrazySchnetzler")
+        description("Shows Badges of players from Laby.net above their Nametag.")
         version(System.getenv().getOrDefault("VERSION", "0.0.0"))
 
         //if you want to add dependencies, go to the build.gradle.kts in the core or api module
