@@ -7,6 +7,7 @@ import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.render.model.entity.player.PlayerModelRenderEvent;
 import net.labymod.api.inject.LabyGuice;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.UUID;
 
 public class PlayerRenderEvent {
@@ -26,14 +27,32 @@ public class PlayerRenderEvent {
       addon.playerCache.put(uuid, getUserBadges(uuid));
   }
 
-  private ArrayList<Badge> getUserBadges(UUID uuid) {
-    ArrayList<Badge> playerBadges = new ArrayList<>();
+  private LinkedList<Badge> getUserBadges(UUID uuid) {
+    LinkedList<Badge> playerBadges = new LinkedList<>();
 
-    addon.badges.forEach((badgeId, badge) -> {
-      if (badge.players().contains(uuid)) {
+    for (UUID badgeUUID : addon.badges.keySet()) {
+      Badge badge = addon.badges.get(badgeUUID);
+
+      if (badge.players().contains(uuid))
         playerBadges.add(badge);
-      }
-    });
+    }
+
     return playerBadges;
+  }
+
+  private boolean hasBadge(LinkedList<Badge> badges, int id) {
+    for (Badge badge : badges)
+      if (badge.getId() == id)
+        return true;
+
+    return false;
+  }
+
+  private LinkedList<Badge> removeBadge(LinkedList<Badge> list, int id) {
+    for (Badge badge : list) {
+      if (badge.getId() == id)
+        list.remove(badge);
+    }
+    return list;
   }
 }
