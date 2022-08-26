@@ -36,7 +36,16 @@ public class BadgeTag extends IconTag {
       return;
     }
 
-    LinkedList<Badge> badges = addon.playerCache.get(player.getUniqueId());
+    LinkedList<Badge> badges;
+    if (addon.configuration().compact()) {
+      badges = addon.playerCompactCache.get(player.getUniqueId());
+    } else {
+      badges = addon.playerCache.get(player.getUniqueId());
+    }
+
+    if (badges == null) {
+      return;
+    }
 
     int amount = badges.size();
     int size = addon.configuration().size();
