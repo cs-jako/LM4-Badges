@@ -38,7 +38,6 @@ public class BadgeUtil {
               String description = object.get("description").getAsString();
 
               Badge badge = new Badge(id, uuid, name, description);
-              addon.logger().info("Added: " + name + " (" + id + ")");
               addon.badges.put(uuid, badge);
             }
           }
