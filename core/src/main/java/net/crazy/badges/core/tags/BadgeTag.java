@@ -3,7 +3,7 @@ package net.crazy.badges.core.tags;
 import java.util.LinkedList;
 import net.crazy.badges.core.Badges;
 import net.crazy.badges.core.badges.Badge;
-import net.labymod.api.client.entity.LivingEntity;
+import net.labymod.api.client.entity.Entity;
 import net.labymod.api.client.entity.player.ClientPlayer;
 import net.labymod.api.client.entity.player.Player;
 import net.labymod.api.client.entity.player.tag.tags.IconTag;
@@ -25,7 +25,7 @@ public class BadgeTag extends IconTag {
   }
 
   @Override
-  public void render(Stack stack, LivingEntity livingEntity) {
+  public void render(Stack stack, Entity livingEntity) {
     if (!(livingEntity instanceof Player)) {
       return;
     }
@@ -63,7 +63,7 @@ public class BadgeTag extends IconTag {
   }
 
   @Override
-  public boolean isVisible(LivingEntity livingEntity) {
+  public boolean isVisible(Entity livingEntity) {
     if (!addon.configuration().enabled().get()) {
       return false;
     }
