@@ -1,0 +1,19 @@
+{
+  "badges": {
+    "settings": {
+      "name": "Badges",
+      "enabled": {
+        "name": "Aktiviert"
+      },
+      "size": {
+        "name": "Badge-Größe (Standard: 10)"
+      },
+      "showOwn": {
+        "name": "Eigene Badges zeigen"
+      },
+      "compactBadges": {
+        "name": "Kompakte Badges"
+      }
+    }
+  }
+}

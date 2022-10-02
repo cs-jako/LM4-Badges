@@ -1,0 +1,19 @@
+{
+  "badges": {
+    "settings": {
+      "name": "Abzeichn",
+      "enabled": {
+        "name": "Engeschalded"
+      },
+      "size": {
+        "name": "Abzeichn Größe (Schdandart: 10)"
+      },
+      "showOwn": {
+        "name": "Eignes Abzeichn anzeischn"
+      },
+      "compactBadges": {
+        "name": "Compact Badges"
+      }
+    }
+  }
+}

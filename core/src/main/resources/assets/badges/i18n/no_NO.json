@@ -1,0 +1,19 @@
+{
+  "badges": {
+    "settings": {
+      "name": "Emblemer",
+      "enabled": {
+        "name": "Aktivert"
+      },
+      "size": {
+        "name": "Emblemstørrelse (standard: 10)"
+      },
+      "showOwn": {
+        "name": "Vis egen Emblem"
+      },
+      "compactBadges": {
+        "name": "Kompakt Emblemer"
+      }
+    }
+  }
+}

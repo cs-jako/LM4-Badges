@@ -1,0 +1,19 @@
+{
+  "badges": {
+    "settings": {
+      "name": "Badges",
+      "enabled": {
+        "name": "Aktiveret"
+      },
+      "size": {
+        "name": "Badgestørrelse (standard: 10)"
+      },
+      "showOwn": {
+        "name": "Vis egne Badge"
+      },
+      "compactBadges": {
+        "name": "Compact Badges"
+      }
+    }
+  }
+}

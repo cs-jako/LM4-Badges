@@ -1,0 +1,19 @@
+{
+  "badges": {
+    "settings": {
+      "name": "Rozetler",
+      "enabled": {
+        "name": "Etkin"
+      },
+      "size": {
+        "name": "Rozet Boyutu (varsayılan: 10)"
+      },
+      "showOwn": {
+        "name": "Kendi Rozetini göster"
+      },
+      "compactBadges": {
+        "name": "Sıkıştırılmış Rozetler"
+      }
+    }
+  }
+}

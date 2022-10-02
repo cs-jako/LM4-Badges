@@ -10,6 +10,9 @@
       },
       "showOwn": {
         "name": "Show own Badge"
+      },
+      "compactBadges": {
+        "name": "Compact Badges"
       }
     }
   }
