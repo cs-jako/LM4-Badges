@@ -28,7 +28,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.labymod.gradle", "addon", "0.2.45")
+        classpath("net.labymod.gradle", "addon", "0.2.46")
     }
 }
 
@@ -68,5 +68,5 @@ addon {
         version("1.2.0")
     }
 
-    internalRelease()
+    snapshotRelease()
 }
