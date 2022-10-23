@@ -1,18 +1,18 @@
 {
   "badges": {
     "settings": {
-      "name": "Badges",
+      "name": "Bedgez",
       "enabled": {
-        "name": "Enabled"
+        "name": "Turnd on"
       },
       "size": {
-        "name": "Badge Size (default: 10)"
+        "name": "Bedge Siez (nermal: 10)"
       },
       "showOwn": {
-        "name": "Show own Badge"
+        "name": "Shaw own Bedge"
       },
       "compactBadges": {
-        "name": "Compact Badges"
+        "name": "Les Bedgez"
       }
     }
   }

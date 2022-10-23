@@ -1,15 +1,15 @@
 {
   "badges": {
     "settings": {
-      "name": "Badges",
+      "name": "Abzeichn",
       "enabled": {
-        "name": "Enabled"
+        "name": "Engeschalded"
       },
       "size": {
-        "name": "Badge Size (default: 10)"
+        "name": "Abzeichn Größe (Schdandart: 10)"
       },
       "showOwn": {
-        "name": "Show own Badge"
+        "name": "Eignes Abzeichn anzeischn"
       },
       "compactBadges": {
         "name": "Compact Badges"

@@ -1,15 +1,15 @@
 {
   "badges": {
     "settings": {
-      "name": "Badges",
+      "name": "Insignias",
       "enabled": {
-        "name": "Enabled"
+        "name": "Activado"
       },
       "size": {
-        "name": "Badge Size (default: 10)"
+        "name": "Tamaño de Insignia (por defecto: 10)"
       },
       "showOwn": {
-        "name": "Show own Badge"
+        "name": "Mostrar propia Insignia"
       },
       "compactBadges": {
         "name": "Compact Badges"

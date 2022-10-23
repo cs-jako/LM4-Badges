@@ -16,6 +16,9 @@ public class AddonConfiguration extends AddonConfig {
   @SwitchSetting
   private final ConfigProperty<Boolean> showOwn = new ConfigProperty<>(true);
 
+  @SwitchSetting
+  private final ConfigProperty<Boolean> compactBadges = new ConfigProperty<>(false);
+
   @SliderSetting(min = 5, max = 20)
   private final ConfigProperty<Integer> size = new ConfigProperty<>(10);
 
@@ -26,6 +29,10 @@ public class AddonConfiguration extends AddonConfig {
 
   public int size() {
     return this.size.get();
+  }
+
+  public boolean compact() {
+    return this.compactBadges.get();
   }
 
   public boolean showOwn() {

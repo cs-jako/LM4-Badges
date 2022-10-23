@@ -3,16 +3,16 @@
     "settings": {
       "name": "Badges",
       "enabled": {
-        "name": "Enabled"
+        "name": "Aktiviert"
       },
       "size": {
-        "name": "Badge Size (default: 10)"
+        "name": "Badge-Größe (Standard: 10)"
       },
       "showOwn": {
-        "name": "Show own Badge"
+        "name": "Eigene Badges zeigen"
       },
       "compactBadges": {
-        "name": "Compact Badges"
+        "name": "Kompakte Badges"
       }
     }
   }

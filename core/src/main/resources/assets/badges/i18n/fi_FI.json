@@ -3,16 +3,16 @@
     "settings": {
       "name": "Badges",
       "enabled": {
-        "name": "Enabled"
+        "name": "Käytössä"
       },
       "size": {
-        "name": "Badge Size (default: 10)"
+        "name": "Badge Koko (oletus: 10)"
       },
       "showOwn": {
-        "name": "Show own Badge"
+        "name": "Näytä oma Badge"
       },
       "compactBadges": {
-        "name": "Compact Badges"
+        "name": "Kompakti Badges"
       }
     }
   }

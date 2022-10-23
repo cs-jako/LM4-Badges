@@ -1,0 +1,19 @@
+{
+  "badges": {
+    "settings": {
+      "name": "Medaglie",
+      "enabled": {
+        "name": "Abilitato"
+      },
+      "size": {
+        "name": "Dimensione Medaglie (predefinito: 10)"
+      },
+      "showOwn": {
+        "name": "Mostra propria Medaglia"
+      },
+      "compactBadges": {
+        "name": "Medaglia Compatte"
+      }
+    }
+  }
+}

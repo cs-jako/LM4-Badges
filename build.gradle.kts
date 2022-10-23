@@ -28,7 +28,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.labymod.gradle", "addon", "0.2.44")
+        classpath("net.labymod.gradle", "addon", "0.2.46")
     }
 }
 
@@ -37,7 +37,7 @@ plugins {
 }
 
 group = "net.crazy"
-version = "1.0.1"
+version = "1.2.0"
 
 plugins.apply("net.labymod.gradle.addon")
 
@@ -65,8 +65,8 @@ addon {
         author("CrazySchnetzler")
         description("Shows Badges of players from Laby.net above their Nametag.")
         iconUrl("https://cs-jako.github.io/images/addons/Badges.png", project(":core"))
-        version(System.getenv().getOrDefault("VERSION", "0.0.0"))
+        version("1.2.0")
     }
 
-    internalRelease()
+    snapshotRelease()
 }

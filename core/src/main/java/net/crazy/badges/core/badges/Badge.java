@@ -35,6 +35,7 @@ public class Badge {
     this.iconUrl = String.format("https://laby.net/texture/badge-small/%s.png", this.uuid.toString());
 
     updatePlayers();
+
   }
 
   public void updatePlayers() {
@@ -65,5 +66,17 @@ public class Badge {
 
   public Icon icon() {
     return Icon.url(this.iconUrl);
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getDescription() {
+    return description;
   }
 }

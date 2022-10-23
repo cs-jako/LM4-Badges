@@ -1,0 +1,19 @@
+{
+  "badges": {
+    "settings": {
+      "name": "Flags",
+      "enabled": {
+        "name": "Able"
+      },
+      "size": {
+        "name": "Size o' Flag (standard: 10)"
+      },
+      "showOwn": {
+        "name": "Show yer own Flag"
+      },
+      "compactBadges": {
+        "name": "Compact Flags"
+      }
+    }
+  }
+}
