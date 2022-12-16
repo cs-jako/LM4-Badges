@@ -54,6 +54,8 @@ public class Badge {
 
         @Override
         public void failed(WebRequestException exception) {
+          addon.pushNotification("Badges - Error",
+              "There was an error while fetching the Players of Badge: " + id);
           addon.logger().error(exception.getMessage());
         }
       });
@@ -65,7 +67,7 @@ public class Badge {
   }
 
   public Icon icon() {
-    return Icon.url(this.iconUrl);
+    return Icon.url(this.iconUrl).resolution(50, 50);
   }
 
   public int getId() {

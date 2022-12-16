@@ -11,9 +11,12 @@ import net.crazy.badges.core.badges.Badge;
 import net.crazy.badges.core.badges.BadgeUtil;
 import net.crazy.badges.core.events.PlayerRenderEvent;
 import net.crazy.badges.core.tags.BadgeTag;
+import net.kyori.adventure.text.Component;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.client.entity.player.tag.PositionType;
 import net.labymod.api.models.addon.annotation.AddonListener;
+import net.labymod.api.notification.Notification;
+import net.labymod.api.notification.Notification.Type;
 
 @Singleton
 @AddonListener
@@ -44,5 +47,13 @@ public class Badges extends LabyAddon<AddonConfiguration> {
   @Override
   protected Class<AddonConfiguration> configurationClass() {
     return AddonConfiguration.class;
+  }
+
+  public void pushNotification(String title, String text) {
+    Notification.Builder builder = Notification.builder()
+        .title(Component.text(title))
+        .text(Component.text(text))
+        .type(Type.ADVANCEMENT);
+    labyAPI().notificationController().push(builder.build());
   }
 }
