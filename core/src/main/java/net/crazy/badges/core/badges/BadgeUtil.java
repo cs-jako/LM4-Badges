@@ -44,6 +44,7 @@ public class BadgeUtil {
 
           @Override
           public void failed(WebRequestException exception) {
+            addon.pushNotification("Badges - Error", "There was an error while loading all badges!");
             addon.logger().error(exception.getMessage());
           }
         }));
