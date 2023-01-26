@@ -9,19 +9,18 @@ import net.labymod.api.client.entity.player.Player;
 import net.labymod.api.client.entity.player.tag.tags.IconTag;
 import net.labymod.api.client.gui.icon.Icon;
 import net.labymod.api.client.render.matrix.Stack;
-import net.labymod.api.inject.LabyGuice;
 
 public class BadgeTag extends IconTag {
 
   private final Badges addon;
 
-  private BadgeTag(int size) {
+  private BadgeTag(Badges addon, int size) {
     super(size);
-    this.addon = LabyGuice.getInstance(Badges.class);
+    this.addon = addon;
   }
 
-  public static BadgeTag create(int size) {
-    return new BadgeTag(size);
+  public static BadgeTag create(Badges addon, int size) {
+    return new BadgeTag(addon, size);
   }
 
   @Override
@@ -51,22 +50,26 @@ public class BadgeTag extends IconTag {
     int size = addon.configuration().size();
 
     float renderWidth =
-        getWidth(player) - (float) (amount * size - (amount - 1) * 5) / 2 - (amount * 5);
-    float renderHeight = getHeight(player) - size;
+        getWidth() - (float) (amount * size - (amount - 1) * 5) / 2 - (amount * 5);
+    float renderHeight = getHeight() - size;
 
     for (Badge badge : badges) {
       Icon icon = badge.icon();
 
-      icon.render(stack, renderWidth, renderHeight, size, size, false, getColor(player));
+      icon.render(stack, renderWidth, renderHeight, size, size, false, getColor());
       renderWidth += 15;
     }
   }
 
   @Override
-  public boolean isVisible(Entity livingEntity) {
+  public boolean isVisible() {
     if (!addon.configuration().enabled().get()) {
       return false;
     }
+
+    Entity livingEntity = this.entity;
+    if (entity == null)
+      return false;
 
     if (!(livingEntity instanceof Player)) {
       return false;

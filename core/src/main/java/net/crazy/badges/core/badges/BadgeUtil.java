@@ -5,7 +5,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.util.UUID;
 import net.crazy.badges.core.Badges;
-import net.labymod.api.inject.LabyGuice;
 import net.labymod.api.util.io.web.URLResolver;
 import net.labymod.api.util.io.web.WebResponse;
 import net.labymod.api.util.io.web.exception.WebRequestException;
@@ -14,8 +13,8 @@ public class BadgeUtil {
 
   private final Badges addon;
 
-  public BadgeUtil() {
-    this.addon = LabyGuice.getInstance(Badges.class);
+  public BadgeUtil(Badges addon) {
+    this.addon = addon;
   }
 
   public void updateBadges() {
@@ -37,7 +36,7 @@ public class BadgeUtil {
               String name = object.get("name").getAsString();
               String description = object.get("description").getAsString();
 
-              Badge badge = new Badge(id, uuid, name, description);
+              Badge badge = new Badge(addon, id, uuid, name, description);
               addon.badges.put(uuid, badge);
             }
           }

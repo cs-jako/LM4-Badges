@@ -4,7 +4,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import net.crazy.badges.core.Badges;
 import net.labymod.api.client.gui.icon.Icon;
-import net.labymod.api.inject.LabyGuice;
 import net.labymod.api.util.io.web.URLResolver;
 import net.labymod.api.util.io.web.WebResponse;
 import net.labymod.api.util.io.web.exception.WebRequestException;
@@ -24,8 +23,8 @@ public class Badge {
   private final String playersUrl;
   private final String iconUrl;
 
-  public Badge(int id, UUID uuid, String name, String description) {
-    this.addon = LabyGuice.getInstance(Badges.class);
+  public Badge(Badges addon, int id, UUID uuid, String name, String description) {
+    this.addon = addon;
     this.id = id;
     this.uuid = uuid;
     this.name = name;
