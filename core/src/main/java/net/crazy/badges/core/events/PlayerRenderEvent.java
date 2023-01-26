@@ -7,14 +7,13 @@ import net.crazy.badges.core.badges.Badge;
 import net.labymod.api.client.entity.player.Player;
 import net.labymod.api.event.Subscribe;
 import net.labymod.api.event.client.render.model.entity.player.PlayerModelRenderEvent;
-import net.labymod.api.inject.LabyGuice;
 
 public class PlayerRenderEvent {
 
   private final Badges addon;
 
-  public PlayerRenderEvent() {
-    this.addon = LabyGuice.getInstance(Badges.class);
+  public PlayerRenderEvent(Badges addon) {
+    this.addon = addon;
   }
 
   @Subscribe

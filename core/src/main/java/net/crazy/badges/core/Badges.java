@@ -1,6 +1,5 @@
 package net.crazy.badges.core;
 
-import com.google.inject.Singleton;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -11,15 +10,14 @@ import net.crazy.badges.core.badges.Badge;
 import net.crazy.badges.core.badges.BadgeUtil;
 import net.crazy.badges.core.events.PlayerRenderEvent;
 import net.crazy.badges.core.tags.BadgeTag;
-import net.kyori.adventure.text.Component;
 import net.labymod.api.addon.LabyAddon;
+import net.labymod.api.client.component.Component;
 import net.labymod.api.client.entity.player.tag.PositionType;
-import net.labymod.api.models.addon.annotation.AddonListener;
+import net.labymod.api.models.addon.annotation.AddonMain;
 import net.labymod.api.notification.Notification;
 import net.labymod.api.notification.Notification.Type;
 
-@Singleton
-@AddonListener
+@AddonMain
 public class Badges extends LabyAddon<AddonConfiguration> {
 
   public final ExecutorService executor = Executors.newFixedThreadPool(6);
@@ -32,12 +30,13 @@ public class Badges extends LabyAddon<AddonConfiguration> {
   protected void enable() {
     this.registerSettingCategory();
 
-    badgeUtil = new BadgeUtil();
+    badgeUtil = new BadgeUtil(this);
     badgeUtil.updateBadges();
 
-    this.registerListener(PlayerRenderEvent.class);
+    this.registerListener(new PlayerRenderEvent(this));
 
     labyAPI().tagRegistry().register("badge", PositionType.ABOVE_NAME, BadgeTag.create(
+        this,
         configuration().size()
     ));
 
