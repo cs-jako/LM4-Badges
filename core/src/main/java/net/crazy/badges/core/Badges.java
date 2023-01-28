@@ -19,6 +19,8 @@ import net.labymod.api.notification.Notification.Type;
 
 @AddonMain
 public class Badges extends LabyAddon<AddonConfiguration> {
+  public static Badges addon;
+
 
   public final ExecutorService executor = Executors.newFixedThreadPool(6);
   public final LinkedHashMap<UUID, Badge> badges = new LinkedHashMap<>();
@@ -29,6 +31,7 @@ public class Badges extends LabyAddon<AddonConfiguration> {
   @Override
   protected void enable() {
     this.registerSettingCategory();
+    addon = this;
 
     badgeUtil = new BadgeUtil(this);
     badgeUtil.updateBadges();
