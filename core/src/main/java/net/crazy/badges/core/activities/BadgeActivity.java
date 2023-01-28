@@ -10,7 +10,6 @@ import net.labymod.api.client.gui.screen.activity.Link;
 import net.labymod.api.client.gui.screen.widget.action.ListSession;
 import net.labymod.api.client.gui.screen.widget.widgets.layout.ScrollWidget;
 import net.labymod.api.client.gui.screen.widget.widgets.layout.TilesGridWidget;
-import net.labymod.api.client.gui.screen.widget.widgets.layout.list.VerticalListWidget;
 import org.jetbrains.annotations.Nullable;
 import java.util.LinkedList;
 
