@@ -1,5 +1,6 @@
 package net.crazy.badges.core.activities;
 
+import net.labymod.api.client.component.Component;
 import net.labymod.api.client.gui.icon.Icon;
 import net.labymod.api.client.gui.lss.property.annotation.AutoWidget;
 import net.labymod.api.client.gui.screen.Parent;
@@ -29,6 +30,9 @@ public class BadgeWidget extends SimpleWidget {
 
     ComponentWidget title = ComponentWidget.text(readableTitle(this.title));
     title.addId("badgeTitle");
+
+    hoverBoxDelay().set(1000);
+    setHoverComponent(Component.text(this.description));
     addChild(title);
   }
 
