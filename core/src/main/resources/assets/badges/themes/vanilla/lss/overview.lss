@@ -28,6 +28,6 @@ Badge {
 
    .badgeTitle {
       alignment-x: center;
-      top: 70%;
+      top: 75%;
    }
 }
