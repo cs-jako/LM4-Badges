@@ -3,6 +3,7 @@ package net.crazy.badges.core;
 import net.crazy.badges.core.activities.BadgeActivity;
 import net.labymod.api.addon.AddonConfig;
 import net.labymod.api.client.gui.screen.activity.Activity;
+import net.labymod.api.client.gui.screen.widget.widgets.activity.settings.ActivitySettingWidget.ActivitySetting;
 import net.labymod.api.client.gui.screen.widget.widgets.activity.settings.AddonActivityWidget.AddonActivitySetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SliderWidget.SliderSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
@@ -27,7 +28,7 @@ public class AddonConfiguration extends AddonConfig {
   @SliderSetting(min = 5, max = 20)
   private final ConfigProperty<Integer> size = new ConfigProperty<>(10);
 
-  @AddonActivitySetting
+  @ActivitySetting
   @MethodOrder(after = "size")
   public Activity badgesOverview() {
     return new BadgeActivity();
