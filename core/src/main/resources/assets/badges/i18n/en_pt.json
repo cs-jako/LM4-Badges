@@ -13,6 +13,9 @@
       },
       "compactBadges": {
         "name": "Compact Flags"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
       }
     }
   }

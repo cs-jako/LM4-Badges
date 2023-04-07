@@ -1,0 +1,22 @@
+{
+  "badges": {
+    "settings": {
+      "name": "Abzeiche",
+      "enabled": {
+        "name": "Aktiviert"
+      },
+      "size": {
+        "name": "Grössi vo de Abzeiche (Standard: 10)"
+      },
+      "showOwn": {
+        "name": "Eigeti Abzeiche azeige"
+      },
+      "compactBadges": {
+        "name": "Kompakti Abzeiche"
+      },
+      "badgesOverview": {
+        "name": "Abzeiche-Übersicht"
+      }
+    }
+  }
+}

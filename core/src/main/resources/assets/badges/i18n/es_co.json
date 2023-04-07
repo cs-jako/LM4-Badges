@@ -13,6 +13,9 @@
       },
       "compactBadges": {
         "name": "Insignias de Compacto"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
       }
     }
   }

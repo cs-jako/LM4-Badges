@@ -13,6 +13,9 @@
       },
       "compactBadges": {
         "name": "Kompakti Badges"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
       }
     }
   }

@@ -13,6 +13,9 @@
       },
       "compactBadges": {
         "name": "Kompakt Emblemer"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
       }
     }
   }
