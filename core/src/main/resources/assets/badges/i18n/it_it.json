@@ -13,6 +13,9 @@
       },
       "compactBadges": {
         "name": "Medaglia Compatte"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
       }
     }
   }

@@ -9,10 +9,13 @@
         "name": "Badge-Größe (Standard: 10)"
       },
       "showOwn": {
-        "name": "Eigene Badges zeigen"
+        "name": "Eigene Badges zagn"
       },
       "compactBadges": {
         "name": "Kompakte Badges"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
       }
     }
   }

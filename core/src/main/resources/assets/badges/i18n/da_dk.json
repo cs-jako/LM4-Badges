@@ -3,16 +3,19 @@
     "settings": {
       "name": "Badges",
       "enabled": {
-        "name": "Aktiviert"
+        "name": "Aktiveret"
       },
       "size": {
-        "name": "Badge-Größe (Standard: 10)"
+        "name": "Badgestørrelse (standard: 10)"
       },
       "showOwn": {
-        "name": "Eigene Badges zagn"
+        "name": "Vis egne Badge"
       },
       "compactBadges": {
         "name": "Compact Badges"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
       }
     }
   }

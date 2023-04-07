@@ -13,6 +13,9 @@
       },
       "compactBadges": {
         "name": "Les Bedgez"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
       }
     }
   }

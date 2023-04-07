@@ -13,6 +13,9 @@
       },
       "compactBadges": {
         "name": "Sıkıştırılmış Rozetler"
+      },
+      "badgesOverview": {
+        "name": "Rozetlere Genel Bakış"
       }
     }
   }

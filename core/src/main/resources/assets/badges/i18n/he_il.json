@@ -1,0 +1,22 @@
+{
+  "badges": {
+    "settings": {
+      "name": "תגים",
+      "enabled": {
+        "name": "מופעל"
+      },
+      "size": {
+        "name": "גודל תג (ברירת מחדל: 10)"
+      },
+      "showOwn": {
+        "name": "הצגת תג של עצמך"
+      },
+      "compactBadges": {
+        "name": "ריכוז תגים"
+      },
+      "badgesOverview": {
+        "name": "Badges Overview"
+      }
+    }
+  }
+}

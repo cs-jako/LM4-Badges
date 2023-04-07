@@ -13,6 +13,9 @@
       },
       "compactBadges": {
         "name": "Скрывать лишние значки"
+      },
+      "badgesOverview": {
+        "name": "Просмотр значков"
       }
     }
   }
