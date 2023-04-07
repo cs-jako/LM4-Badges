@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "net.crazy"
-version = "1.2.0"
+version = "1.5.0"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
@@ -18,7 +18,7 @@ labyMod {
         description = "Shows Badges of players from Laby.net above their NameTag."
         minecraftVersion = "*"
         iconUrl = "https://cs-jako.github.io/images/addons/Badges.png"
-        version = "1.3.0"
+        version = "1.5.0"
     }
 
     minecraft {
