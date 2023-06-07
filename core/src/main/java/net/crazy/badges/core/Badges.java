@@ -8,6 +8,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import net.crazy.badges.core.badges.Badge;
 import net.crazy.badges.core.badges.BadgeUtil;
+import net.crazy.badges.core.events.CacheEvents;
 import net.crazy.badges.core.events.PlayerRenderEvent;
 import net.crazy.badges.core.tags.BadgeTag;
 import net.labymod.api.addon.LabyAddon;
@@ -25,7 +26,6 @@ public class Badges extends LabyAddon<AddonConfiguration> {
   public final ExecutorService executor = Executors.newFixedThreadPool(6);
   public final LinkedHashMap<UUID, Badge> badges = new LinkedHashMap<>();
   public final HashMap<UUID, LinkedList<Badge>> playerCache = new HashMap<>();
-  public final HashMap<UUID, LinkedList<Badge>> playerCompactCache = new HashMap<>();
   public BadgeUtil badgeUtil;
 
   @Override
@@ -37,6 +37,7 @@ public class Badges extends LabyAddon<AddonConfiguration> {
     badgeUtil.updateBadges();
 
     this.registerListener(new PlayerRenderEvent(this));
+    this.registerListener(new CacheEvents(this));
 
     labyAPI().tagRegistry().register("badge", PositionType.ABOVE_NAME, BadgeTag.create(
         this,

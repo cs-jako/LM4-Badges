@@ -23,7 +23,6 @@ public class PlayerRenderEvent {
 
     if (!addon.playerCache.containsKey(uuid)) {
       addon.playerCache.put(uuid, getUserBadges(uuid));
-      addon.playerCompactCache.put(uuid, getCompactBadges(uuid));
     }
   }
 
@@ -38,33 +37,5 @@ public class PlayerRenderEvent {
     }
 
     return playerBadges;
-  }
-
-  private LinkedList<Badge> getCompactBadges(UUID uuid) {
-    LinkedList<Badge> playerBadges = getUserBadges(uuid);
-
-    if (hasBadge(playerBadges, 10))
-      playerBadges = removeBadge(playerBadges, 9);
-
-    if (hasBadge(playerBadges, 11))
-      playerBadges = removeBadge(playerBadges, 10);
-
-    if (hasBadge(playerBadges, 13))
-      playerBadges = removeBadge(playerBadges, 11);
-
-    return playerBadges;
-  }
-
-  private boolean hasBadge(LinkedList<Badge> badges, int id) {
-    for (Badge badge : badges)
-      if (badge.getId() == id)
-        return true;
-
-    return false;
-  }
-
-  private LinkedList<Badge> removeBadge(LinkedList<Badge> list, int id) {
-    list.removeIf(badge -> badge.getId() == id);
-    return list;
   }
 }
