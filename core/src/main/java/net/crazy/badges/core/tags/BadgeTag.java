@@ -49,16 +49,18 @@ public class BadgeTag extends IconTag {
     int amount = badges.size();
     int size = addon.configuration().size();
 
-    float renderWidth =
-        getWidth() - (float) (amount * size - (amount - 1) * 5) / 2 - (amount * 5);
-    float renderHeight = getHeight() - size;
+    this.labyAPI.renderPipeline().renderSeeThrough(entity, () -> {
+      float renderWidth =
+          getWidth() - (float) (amount * size - (amount - 1) * 5) / 2 - (amount * 5);
+      float renderHeight = getHeight() - size;
 
-    for (Badge badge : badges) {
-      Icon icon = badge.icon();
+      for (Badge badge : badges) {
+        Icon icon = badge.icon();
 
-      icon.render(stack, renderWidth, renderHeight, size, size, false, getColor());
-      renderWidth += 15;
-    }
+        icon.render(stack, renderWidth, renderHeight, size, size, false, getColor());
+        renderWidth += 15;
+      }
+    });
   }
 
   @Override
