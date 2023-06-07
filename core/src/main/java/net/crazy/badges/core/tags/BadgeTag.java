@@ -35,15 +35,17 @@ public class BadgeTag extends IconTag {
       return;
     }
 
-    LinkedList<Badge> badges;
-    if (addon.configuration().compact()) {
-      badges = addon.playerCompactCache.get(player.getUniqueId());
-    } else {
-      badges = addon.playerCache.get(player.getUniqueId());
-    }
+    LinkedList<Badge> badges = addon.playerCache.get(player.getUniqueId());
 
     if (badges == null) {
       return;
+    }
+
+    if (addon.configuration().compact()) {
+      badges.removeIf(badge ->
+          (badge.getId() == 9 && hasBadge(badges, 10)) ||
+          (badge.getId() == 10 && hasBadge(badges, 11)) ||
+          (badge.getId() == 11 && hasBadge(badges, 13)));
     }
 
     int amount = badges.size();
@@ -105,5 +107,13 @@ public class BadgeTag extends IconTag {
     }
 
     return true;
+  }
+
+  private boolean hasBadge(LinkedList<Badge> badges, int id) {
+    for (Badge badge : badges)
+      if (badge.getId() == id)
+        return true;
+
+    return false;
   }
 }
