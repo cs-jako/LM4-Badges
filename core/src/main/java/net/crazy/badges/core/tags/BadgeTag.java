@@ -1,6 +1,8 @@
 package net.crazy.badges.core.tags;
 
 import java.util.LinkedList;
+import java.util.UUID;
+
 import net.crazy.badges.core.Badges;
 import net.crazy.badges.core.badges.Badge;
 import net.labymod.api.client.entity.Entity;
@@ -35,17 +37,16 @@ public class BadgeTag extends IconTag {
       return;
     }
 
-    LinkedList<Badge> badges = addon.playerCache.get(player.getUniqueId());
+    LinkedList<Badge> badges = new LinkedList<>(addon.playerCache.get(player.getUniqueId()));
 
-    if (badges == null) {
+    if (badges.isEmpty()) {
       return;
     }
 
     if (addon.configuration().compact()) {
-      badges.removeIf(badge ->
-          (badge.getId() == 9 && hasBadge(badges, 10)) ||
-          (badge.getId() == 10 && hasBadge(badges, 11)) ||
-          (badge.getId() == 11 && hasBadge(badges, 13)));
+      badges.removeIf(badge -> badge.getId() == 9 && hasBadge(badges, 10)); // Remove 'Streak I' if user also has 'Streak II'
+      badges.removeIf(badge -> badge.getId() == 10 && hasBadge(badges, 11)); // Remove 'Streak II' if user also has 'Streak III'
+      badges.removeIf(badge -> badge.getId() == 11 && hasBadge(badges, 13)); // Remove 'Streak III' if user also has 'Highest Streak'
     }
 
     int amount = badges.size();
