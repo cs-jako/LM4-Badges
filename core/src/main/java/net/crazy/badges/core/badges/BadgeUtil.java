@@ -3,7 +3,10 @@ package net.crazy.badges.core.badges;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import java.util.UUID;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
 import net.crazy.badges.core.Badges;
 import net.labymod.api.util.io.web.URLResolver;
 import net.labymod.api.util.io.web.WebResponse;
@@ -39,6 +42,8 @@ public class BadgeUtil {
               Badge badge = new Badge(addon, id, uuid, name, description);
               addon.badges.put(uuid, badge);
             }
+
+            addon.badges = sortBadgesByID(addon.badges);
           }
 
           @Override
@@ -47,5 +52,16 @@ public class BadgeUtil {
             addon.logger().error(exception.getMessage());
           }
         }));
+  }
+
+  private LinkedHashMap<UUID, Badge> sortBadgesByID(LinkedHashMap<UUID, Badge> badges) {
+      return badges.entrySet().stream()
+              .sorted(Comparator.comparing(entry -> entry.getValue().getId()))
+              .collect(Collectors.toMap(
+                      Map.Entry::getKey,
+                      Map.Entry::getValue,
+                      (e1, e2) -> e1,
+                      LinkedHashMap::new
+              ));
   }
 }
