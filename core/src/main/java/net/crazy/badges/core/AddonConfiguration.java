@@ -50,4 +50,8 @@ public class AddonConfiguration extends AddonConfig {
   public boolean showOwn() {
     return this.showOwn.get();
   }
+
+  public ConfigProperty<Boolean> getCompactBadges() {
+    return this.compactBadges;
+  }
 }

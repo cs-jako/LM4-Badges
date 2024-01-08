@@ -37,7 +37,7 @@ public class BadgeTag extends IconTag {
       return;
     }
 
-    LinkedList<Badge> badges = new LinkedList<>(addon.playerCache.get(player.getUniqueId()));
+    LinkedList<Badge> badges = addon.playerCache.get(player.getUniqueId());
 
     if (badges.isEmpty()) {
       return;
