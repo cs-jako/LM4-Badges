@@ -44,6 +44,21 @@ public class Badges extends LabyAddon<AddonConfiguration> {
         configuration().size()
     ));
 
+    addon.configuration().getCompactBadges().addChangeListener((state) -> {
+      if (state) {
+        // Don't purge "cache" when enabling compact mode as this doesn't cause any issues
+        return;
+      }
+
+      /**
+       * Purge "Cache"
+       * Meaning: Clear the playerCache as due to the #removeIf inside BadgeTag the badges list get's updated
+       * This should not really be a performance bottleneck as it's just resets everything back to the beginning
+       * and when a player is rendered, their correct badges are loaded from the normal badges cache
+       */
+      playerCache.clear();
+    });
+
     this.logger().info("[Badges] Addon enabled.");
   }
 
