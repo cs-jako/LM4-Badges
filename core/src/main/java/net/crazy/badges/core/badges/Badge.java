@@ -4,13 +4,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import net.crazy.badges.core.Badges;
 import net.labymod.api.client.gui.icon.Icon;
-import net.labymod.api.util.io.web.URLResolver;
-import net.labymod.api.util.io.web.WebResponse;
-import net.labymod.api.util.io.web.exception.WebRequestException;
+import net.labymod.api.util.io.web.request.Request;
+import net.labymod.api.util.io.web.request.Response;
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class Badge {
+
   private final Badges addon;
 
   private final int id;
@@ -31,34 +31,21 @@ public class Badge {
     this.description = description;
 
     this.playersUrl = String.format("https://laby.net/api/badge/%s", this.id);
-    this.iconUrl = String.format("https://laby.net/texture/badge-small/%s.png", this.uuid.toString());
+    this.iconUrl = String.format(
+        "https://laby.net/texture/badge-small/%s.png",
+        this.uuid.toString()
+    );
 
-    updatePlayers();
+    this.updatePlayers();
 
   }
 
   public void updatePlayers() {
-    players.clear();
-
-    addon.executor.execute(() -> {
-      URLResolver.readJson(playersUrl, true, new WebResponse<JsonElement>() {
-        @Override
-        public void success(JsonElement result) {
-          JsonArray response = result.getAsJsonArray();
-          for (int i = 0; i < response.size(); i++) {
-            UUID player = UUID.fromString(response.get(i).getAsString());
-            players.add(player);
-          }
-        }
-
-        @Override
-        public void failed(WebRequestException exception) {
-          addon.pushNotification("Badges - Error",
-              "There was an error while fetching the Players of Badge: " + id);
-          addon.logger().error(exception.getMessage());
-        }
-      });
-    });
+    this.players.clear();
+    Request.ofGson(JsonElement.class)
+        .url(this.playersUrl)
+        .async(true)
+        .execute(this::handleResponse);
   }
 
   public ArrayList<UUID> players() {
@@ -70,14 +57,44 @@ public class Badge {
   }
 
   public int getId() {
-    return id;
+    return this.id;
   }
 
   public String getName() {
-    return name;
+    return this.name;
   }
 
   public String getDescription() {
-    return description;
+    return this.description;
+  }
+
+  private void handleResponse(Response<JsonElement> response) {
+    try {
+      if (response.hasException()) {
+        throw response.exception();
+      }
+
+      if (response.isEmpty()) {
+        throw new IllegalStateException("Invalid badge response");
+      }
+
+      JsonElement element = response.get();
+      if (!element.isJsonArray()) {
+        throw new IllegalStateException("Invalid badge response");
+      }
+
+      JsonArray entries = element.getAsJsonArray();
+      for (int index = 0; index < entries.size(); index++) {
+        UUID player = UUID.fromString(entries.get(index).getAsString());
+        this.players.add(player);
+      }
+
+    } catch (Exception exception) {
+      this.addon.pushNotification(
+          "Badges - Error",
+          "There was an error while fetching the Players of Badge: " + Badge.this.id
+      );
+      this.addon.logger().error(exception.getMessage());
+    }
   }
 }

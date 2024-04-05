@@ -1,7 +1,7 @@
 rootProject.name = "badges"
 
 pluginManagement {
-    val labyGradlePluginVersion = "0.3.43"
+    val labyGradlePluginVersion = "0.3.48"
     plugins {
         id("net.labymod.gradle") version (labyGradlePluginVersion)
     }

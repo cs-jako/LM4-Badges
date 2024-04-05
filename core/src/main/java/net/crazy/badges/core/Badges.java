@@ -22,8 +22,6 @@ import net.labymod.api.notification.Notification.Type;
 public class Badges extends LabyAddon<AddonConfiguration> {
   public static Badges addon;
 
-
-  public final ExecutorService executor = Executors.newFixedThreadPool(6);
   public LinkedHashMap<UUID, Badge> badges = new LinkedHashMap<>();
   public final HashMap<UUID, LinkedList<Badge>> playerCache = new HashMap<>();
   public BadgeUtil badgeUtil;
@@ -71,7 +69,7 @@ public class Badges extends LabyAddon<AddonConfiguration> {
     Notification.Builder builder = Notification.builder()
         .title(Component.text(title))
         .text(Component.text(text))
-        .type(Type.ADVANCEMENT);
+        .type(Type.SYSTEM);
     labyAPI().notificationController().push(builder.build());
   }
 }
