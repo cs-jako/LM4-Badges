@@ -13,7 +13,7 @@ import net.labymod.api.util.io.web.request.Response;
 
 public class BadgeUtil {
 
-  private static final String BADGES_ENDPOINT = "https://laby.net/api/badges";
+  private static final String BADGES_ENDPOINT = "https://laby.net/api/v3/badges";
   private final Badges addon;
   private final Request<JsonElement> request;
 
