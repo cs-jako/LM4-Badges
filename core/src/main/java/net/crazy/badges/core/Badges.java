@@ -37,7 +37,7 @@ public class Badges extends LabyAddon<AddonConfiguration> {
     this.registerListener(new PlayerRenderEvent(this));
     this.registerListener(new CacheEvents(this));
 
-    labyAPI().tagRegistry().register("badge", PositionType.ABOVE_NAME, BadgeTag.create(
+    labyAPI().tagRegistry().registerAfter("friendtags_tag", "badge", PositionType.ABOVE_NAME, BadgeTag.create(
         this,
         configuration().size()
     ));
